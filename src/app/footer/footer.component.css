@@ -1,0 +1,173 @@
+.footer {
+  display: flex;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.1), 0 0 15px rgba(102, 0, 255, 0.8);
+  border-top: 3px solid #6600ff;
+  position: relative;
+}
+
+#titulos {
+  font-size: 15px;
+  font-weight: bolder;
+  animation: gradient-animation 3s infinite;
+  text-decoration: none;
+}
+
+@keyframes gradient-animation {
+  0% {
+    color: #800080;
+    /* Púrpura oscuro */
+  }
+
+  50% {
+    color: #b800e6;
+    /* Púrpura medio */
+  }
+
+  100% {
+    color: #800080;
+    /* Púrpura oscuro */
+  }
+}
+
+.contactanos {
+  margin-top: 10px;
+}
+
+a {
+  margin-inline: 10px;
+}
+
+.footer span {
+  font-weight: bold;
+
+}
+
+#copy {
+
+  display: flex;
+  padding-top: 40px;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+
+}
+
+a {
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition-property:
+    outline-offset, outline-color, background-color;
+  transition-duration: 0.55s;
+}
+
+a:hover {
+  outline-offset: 4px;
+}
+
+a i {
+  margin: auto;
+}
+
+a:hover i {
+  animation: shake 0.55s;
+}
+
+a:hover svg {
+  animation: shake 0.55s;
+}
+
+@keyframes shake {
+  10% {
+    transform: rotate(15deg);
+  }
+
+  20% {
+    transform: rotate(-15deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+  }
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 7));
+  }
+}
+/*
+.client-slider {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.client-slider::before,
+.client-slider::after {
+  background: -webkit-gradient(linear, left top, right top, from(white), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.client-slider::after {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+.client-slider::before {
+  left: 0;
+  top: 0;
+}
+
+.client-slider .client-slide-track {
+  -webkit-animation: scroll 40s linear infinite;
+  animation: scroll 40s linear infinite;
+  display: -webkit-box;
+  display: flex;
+  width: calc(250px * 14);
+}
+
+.client-slider .client-slide {
+  height: auto;
+  width: 100%;
+}
+
+.imagenesFooter {
+  margin-right: 2%;
+  margin-left: 2%;
+}
+*/

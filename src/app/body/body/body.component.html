@@ -1,0 +1,115 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+  <div class="carousel-inner">
+    <div *ngFor="let image of images; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [attr.src]="image" class="d-block w-100 carousel-image" id="imagenes">
+    </div>
+  </div>
+</div>
+
+<div id="zonaTitulo">
+  <h1><strong>Nuestros Productos</strong></h1>
+</div>
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-3 mb-3 mb-md-0" *ngFor="let producto of productos.slice(0,4); let i = index;">
+      <img class="text-center" id="imagenesProd" src="{{ producto.imagen }}">
+      <div class="card" id="cartitas">
+        <div class="card-body">
+          <ng-container *ngIf="stocks[i].stock === 0">
+            <p class="text-center bg-danger text-light border border-2 border-dark pocUnidades">Sin unidades!!</p>
+          </ng-container>
+          <ng-container *ngIf="stocks[i].stock >= 1 && stocks[i].stock <= 15">
+            <p class="text-center bg-warning text-dark border border-2 border-dark pocUnidades pulse">Últimas unidades!!
+            </p>
+          </ng-container>
+          <div class="text-center">
+            <h5 class="card-title">{{ producto.id_marca }}</h5>
+            <h5 class="card-title" id="titulos">{{ producto.nombre }}</h5>
+            <h5 class="card-text" id="titulos">{{ producto.precio.toFixed(2) }} €</h5>
+          </div>
+        </div>
+        <button *ngIf="stocks[i].stock > 0; else noStock" (click)="goToProduct(producto)" id="botonProd"
+          [disabled]="!(stocks[i].stock > cantidadProductos[i] && cantidadProductos[i] >= 1)">
+          <strong>Ir al Producto!!</strong>
+        </button>
+
+        <ng-template #noStock>
+          <button class="bg-danger" id="botonProd">
+            <strong>No hay stock</strong>
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container-fluid">
+  <div class="custom-zonaTitulo">
+    <h1><strong>Nuestros Colaboradores</strong></h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-3 galeria">
+      <div class="image" style="background-image: url(../../../assets/IMG/nvidia.png);"></div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3 galeria">
+      <div class="image" style="background-image: url(../../../assets/IMG/msi.png);"></div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3 galeria">
+      <div class="image" style="background-image: url(../../../assets/IMG/intel.png);"></div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3 galeria">
+      <div class="image" style="background-image: url(../../../assets/IMG/amd.png);"></div>
+    </div>
+  </div>
+</div>
+
+
+<div id="zonaTitulo">
+  <h1><strong>¿Por qué RGB Company?</strong></h1>
+</div>
+
+<div class="row" id="cartasRGB">
+  <div class="col-12 col-lg-4 col-md-6 mb-5">
+    <br>
+    <div class="card border-4 border-dark rounded-3 h-100" id="cartasPorque">
+      <div class="card-body">
+        <i class="fa fa-4x fa-check" id="titulos"></i>
+        <h5 class="card-title" id="titulos">Garantía</h5>
+        <p class="card-text bg-light-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quis
+          maiores cum quaerat repudiandae corrupti ducimus sequi, earum aut sunt, consequuntur adipisci! Quis
+          consequuntur provident sapiente esse assumenda distinctio vero.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-4 col-md-6 mb-5">
+    <br>
+    <div class="card border-4 border-dark rounded-3 h-100" id="cartasPorque">
+      <div class="card-body">
+        <i class="fa fa-4x fa-diamond" id="titulos"></i>
+        <h5 class="card-title" id="titulos">Calidad</h5>
+        <p class="card-text bg-light-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non
+          animi laboriosam officiis dolore at blanditiis laudantium id, necessitatibus enim dolorem quibusdam
+          minima beatae quas voluptas tempora earum quaerat iste.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-4 col-md-12 mb-5">
+    <br>
+    <div class="card border-4 border-dark rounded-3 h-100" id="cartasPorque">
+      <div class="card-body">
+        <i class="fa fa-4x fa-truck" id="titulos"></i>
+        <h5 class="card-title" id="titulos">Rapidez</h5>
+        <p class="card-text bg-light-gray">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates,
+          voluptatem sed, tempore molestiae neque iusto corrupti accusamus inventore commodi in repellat culpa
+          nihil, consequatur aliquam distinctio aut. Tempora, quia. Animi?</p>
+      </div>
+    </div>
+  </div>
+</div>

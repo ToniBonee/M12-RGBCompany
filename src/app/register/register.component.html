@@ -1,0 +1,134 @@
+<div class="centrado">
+    <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+            <form [formGroup]="Form" (ngSubmit)="register(Form.value)" class="form">
+                <h1>Registrate</h1>
+                <span>o usa tu correo electrónico.</span>
+                <input type="text" id="id_cliente" formControlName="id_cliente" hidden />
+
+
+                <input type="text" formControlName="usuario" placeholder="Usuario">
+                <div *ngIf="Form.get('usuario')?.invalid && (Form.get('usuario')?.dirty || Form.get('usuario')?.touched)" class="error-message">
+                    <div *ngIf="Form.get('usuario')?.hasError('required')" >
+                       El Usuario es requerido.
+                    </div>
+                    <div *ngIf="Form.get('usuario')?.hasError('maxlength')">
+                        El Usuario no puede tener más de 20 caracteres.
+                    </div>
+                    <div *ngIf="Form.get('usuario')?.hasError('minlength')">
+                        El Usuario debe tener al menos 3 caracteres.
+                    </div>
+                </div>
+
+
+
+                <input type="text" formControlName="nombre" placeholder="Nombre">
+                <div *ngIf="Form.get('nombre')?.invalid && (Form.get('nombre')?.dirty || Form.get('nombre')?.touched)" class="error-message">
+                    <div *ngIf="Form.get('nombre')?.hasError('required')">
+                       El Nombre es requerido.
+                    </div>
+                    <div *ngIf="Form.get('nombre')?.hasError('pattern')">
+                        El Nombre solo puede contener letras, espacios y la letra "ñ".
+                    </div>
+                </div>
+
+
+                <input type="email" formControlName="correo" placeholder="Correo electrónico:">
+                <div *ngIf="Form.get('correo')?.invalid && (Form.get('correo')?.dirty || Form.get('correo')?.touched)" class="error-message">
+                    <div *ngIf="Form.get('correo')?.hasError('required')">
+                       El Correo electrónico es requerido.
+                    </div>
+                    <div *ngIf="Form.get('correo')?.hasError('pattern')">
+                       El Correo electrónico debe tener un formato válido.
+                    </div>
+                </div>
+
+
+
+                <input type="password" formControlName="contrasena" placeholder="Contraseña">
+                <div
+                    *ngIf="Form.get('contrasena')?.invalid && (Form.get('contrasena')?.dirty || Form.get('contrasena')?.touched)" class="error-message">
+                    <div *ngIf="Form.get('contrasena')?.hasError('required')">
+                        Contraseña es requerida.
+                    </div>
+                    <div *ngIf="Form.get('contrasena')?.hasError('minlength')">
+                        Contraseña debe tener al menos 8 caracteres.
+                    </div>
+                    <div *ngIf="Form.get('contrasena')?.hasError('maxlength')">
+                        Contraseña no puede tener más de 20 caracteres.
+                    </div>
+                </div>
+
+                <input id="repeatContrasena" type="password" #Rcontrasena placeholder="Repita la Contraseña"/>
+                
+                    <input type="text" formControlName="telefono" placeholder="Teléfono">
+                    <div *ngIf="Form.get('telefono')?.invalid && (Form.get('telefono')?.dirty || Form.get('telefono')?.touched)" class="error-message">
+                        <div *ngIf="Form.get('telefono')?.hasError('minlength')">
+                            Teléfono debe tener al menos 9 dígitos.
+                        </div>
+                        <div *ngIf="Form.get('telefono')?.hasError('maxlength')" >
+                            Teléfono no puede tener más de 10 dígitos.
+                        </div>
+                        <div *ngIf="Form.get('telefono')?.hasError('pattern')">
+                            Teléfono solo puede contener números.
+                        </div>
+                    </div>
+                <input type="text" id="rol" formControlName="rol" hidden />
+                <input type="text" id="imagen" formControlName="imagen" hidden />
+                <input type="text" id="estado_cuenta" formControlName="estado_cuenta" hidden />
+                <button type="submit" [disabled]="Form.invalid">Registrarme</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form [formGroup]="Form">
+                <h1>Inicie sesión con</h1>
+                <span>o bien use su correo electronico</span>
+
+                    <input type="email" #email formControlName="correo" class="form-control" id="email2" placeholder="Enter email">
+                    <div *ngIf="Form.get('correo')?.invalid && (Form.get('correo')?.dirty || Form.get('correo')?.touched)" class="error-message">
+                      <div *ngIf="Form.get('correo')?.hasError('required')">
+                        Correo electrónico es requerido.
+                      </div>
+                      <div *ngIf="Form.get('correo')?.hasError('pattern')">
+                        Correo electrónico debe tener un formato válido.
+                      </div>
+                    </div>
+                  
+                
+                    <input type="password" #contrasena formControlName="contrasena" placeholder="Contraseña" />
+                    <div *ngIf="Form.get('contrasena')?.invalid && (Form.get('contrasena')?.dirty || Form.get('contrasena')?.touched)" class="error-message">
+                      <div *ngIf="Form.get('contrasena')?.hasError('required')">
+                        Contraseña es requerida.
+                      </div>
+                      <div *ngIf="Form.get('contrasena')?.hasError('minlength')">
+                        Contraseña debe tener al menos 4 caracteres.
+                      </div>
+                      <div *ngIf="Form.get('contrasena')?.hasError('maxlength')">
+                        Contraseña no puede tener más de 20 caracteres.
+                      </div>
+                    </div>
+                  
+                    
+                <button type="submit" (click)="login()">Iniciar Sesión</button>
+            
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido!</h1>
+                    <p>Inicie Sesión para descubrir todas la novedades!</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>No tienes Cuenta?</h1>
+                    <p>Introduzca sus datos personales para poder accerder a nuestros servicios</p>
+                    <button class="ghost" id="signUp">Registrarme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,103 @@
+<header class="row header">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 logo" [routerLink]="['/body']">
+    <img src="../../assets/IMG/logo.png">
+  </div>
+  <nav class="col-12 col-sm-12 col-md-6 col-lg-8 col-xl-8 row">
+    <ul class="nav">
+      <li class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+        <a [routerLink]="['productosComprados']">Compra</a>
+        <!--
+        <ul>
+          <li><a [routerLink]="['productosComprados']">Pantallas</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Curvas</a></li>
+              <li><a [routerLink]="['productosComprados']">HD</a></li>
+              <li><a [routerLink]="['productosComprados']">Oled</a></li>
+              <li><a [routerLink]="['productosComprados']">60Hz</a></li>
+              <li><a [routerLink]="['productosComprados']">144Hz</a></li>
+              <li><a [routerLink]="['productosComprados']">165Hz</a></li>
+              <li><a [routerLink]="['productosComprados']">240Hz</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['productosComprados']">Ratones</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Inalambrico</a></li>
+              <li><a [routerLink]="['productosComprados']">Por cable</a></li>
+              <li><a [routerLink]="['productosComprados']">Laser</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['productosComprados']">Teclados</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Membrana</a></li>
+              <li><a [routerLink]="['productosComprados']">Mecanico</a></li>
+              <li><a [routerLink]="['productosComprados']">Switches</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['productosComprados']">Torres</a></li>
+          <li><a [routerLink]="['productosComprados']">Portatiles</a></li>
+          <li><a [routerLink]="['productosComprados']">Audio</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Con micro</a></li>
+              <li><a [routerLink]="['productosComprados']">Auriculares</a></li>
+              <li><a [routerLink]="['productosComprados']">Cascos</a></li>
+              <li><a [routerLink]="['productosComprados']">Altavozes</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['productosComprados']">Microfonos</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Para grabación</a></li>
+              <li><a [routerLink]="['productosComprados']">Para Streaming</a></li>
+              <li><a [routerLink]="['productosComprados']">Casual</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['productosComprados']">Componentes</a>
+            <ul>
+              <li><a [routerLink]="['productosComprados']">Tarjetas Gráficas</a></li>
+              <li><a [routerLink]="['productosComprados']">Procesadores</a></li>
+              <li><a [routerLink]="['productosComprados']">Placa Base</a></li>
+              <li><a [routerLink]="['productosComprados']">Cajas</a></li>
+              <li><a [routerLink]="['productosComprados']">Fuente de Alimentación</a></li>
+              <li><a [routerLink]="['productosComprados']">RAM</a></li>
+              <li><a [routerLink]="['productosComprados']">Cables</a></li>
+              <li><a [routerLink]="['productosComprados']">Discos Duros</a></li>
+            </ul>
+          </li>
+        </ul>-->
+      </li>
+      <li class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3"><a [routerLink]="['/alquiler']">Alquilar PC</a></li>
+      <li class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3"><a [routerLink]="['/creatupc']">Crea tu PC</a></li>
+      <li class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+        <a [routerLink]="['/contacto']">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 buttons">
+    <ng-container *ngIf="id_session; else usuarioNoRegistrado">
+      <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 user" aria-label="Acceder a tu perfil">
+        <i class="fa fa-user"></i>
+        <div class="dropdown-container">
+          <ul class="dropdown">
+            <li><a [routerLink]="['/palquiler']">Tu Perfil</a></li>
+          </ul>
+        </div>
+      </button>
+      <button [routerLink]="['/tu-carro']" id="cart-btn" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 cart" aria-label="Carrito de compras">
+        <i class="fa fa-shopping-cart"></i>
+      </button>
+    </ng-container>
+    <ng-template #usuarioNoRegistrado>
+       <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 user" aria-label="Acceder a tu perfil">
+      <i class="fa fa-user"></i>
+      <div class="dropdown-container">
+        <ul class="dropdown">
+          
+          <li><a [routerLink]="['/login']">Iniciar sesión</a></li>
+          <li><a [routerLink]="['/login']">Registrarse</a></li>
+        </ul>
+      </div>
+    </button>
+    <button [routerLink]="['/login']" id="cart-btn" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 cart" aria-label="Carrito de compras"><i
+        class="fa fa-shopping-cart"></i></button>
+    </ng-template>
+  </div>
+</header>

@@ -1,0 +1,83 @@
+<div class="container-fluid panel">
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-xl-3 navegacion">
+      <a routerLink="/alquilerPanel" routerLinkActive="active" class="boton-compra">Alquiler</a>
+      <a routerLink="/cambiarAvatar" routerLinkActive="active" class="boton-compra">Cambiar avatar</a>
+      <a routerLink="/comprasPanel" routerLinkActive="active" class="boton-compra">Compras</a>
+      <a routerLink="/metodos-pago" routerLinkActive="active" class="boton-compra">Mis métodos de pago</a>
+      <a routerLink="/tu-carro" routerLinkActive="active" class="boton-compra">Tu carro</a>
+      <a (click)="desconectar()" class="boton-compra desconectar">Desconectar</a>
+    </div>
+    <div class="col-sm-9 col-md-9 col-xl-9 contenido">
+      <div class="col-sm-12 col-md-12 col-xl-12 contenido2">
+
+
+
+
+        <div class="scroll-clientes">
+          <div *ngIf="tarjetasPago.length > 0" class="tarjetas-pago-container">
+            <h2 class="titulo-tarjetas-pago">Tarjetas de Pago</h2>
+            <div class="lista-tarjetas-pago">
+              <div *ngFor="let tarjeta of tarjetasPago" class="tarjeta-pago-item">
+                <ng-container *ngIf="tarjeta.estado_tarjeta === true">
+                  <h1>Tarjetas activas</h1>
+                  <h3 class="titulo-tarjeta">Tarjeta {{ tarjetasPago.indexOf(tarjeta) + 1 }}</h3>
+                  <div class="campo-tarjeta">Nombre del Titular: {{ tarjeta.nombre_titular }}</div>
+                  <div class="campo-tarjeta">Dirección: {{ tarjeta.direccion }}</div>
+                  <div class="campo-tarjeta">Ciudad: {{ tarjeta.ciudad }}</div>
+                  <div class="campo-tarjeta">Estado tarjeta: {{ tarjeta.estado_tarjeta }}</div>
+                  <!-- Agrega aquí las clases y estilos adicionales según tus necesidades -->
+                </ng-container>
+              </div>
+              <div *ngFor="let tarjeta of tarjetasPago" class="tarjeta-pago-item">
+              
+                <ng-container *ngIf="tarjeta.estado_tarjeta === false">
+                  <h1>Tarjetas Inactivas</h1>
+                  <h3 class="titulo-tarjeta">Tarjeta {{ tarjetasPago.indexOf(tarjeta) + 1 }}</h3>
+                  <div class="campo-tarjeta">Nombre del Titular: {{ tarjeta.nombre_titular }}</div>
+                  <div class="campo-tarjeta">Dirección: {{ tarjeta.direccion }}</div>
+                  <div class="campo-tarjeta">Ciudad: {{ tarjeta.ciudad }}</div>
+                  <div class="campo-tarjeta">Estado tarjeta: {{ tarjeta.estado_tarjeta }}</div>
+                  <!-- Agrega aquí las clases y estilos adicionales según tus necesidades -->
+                </ng-container>
+              </div>
+            </div>
+              <button [routerLink]="['/pagoTarjeta']"> Agregar Nueva Tarjeta</button>
+          </div>
+          
+          <div *ngIf="tarjetasPago.length === 0" class="sin-tarjetas-msg">
+            <p>No se encontraron tarjetas de pago para el cliente.:c </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

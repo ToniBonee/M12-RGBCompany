@@ -1,0 +1,39 @@
+<div class="container-fluid" [routerLink]="['infoProducto']">
+    <div class="row">
+        <div class="col-md-3 mb-3 mb-md-4" *ngFor="let producto of productos; let i = index;">
+            <ng-container *ngIf="producto.tipos_productos.id_tipo_producto === 2 ">
+                <img class="text-center" id="imagenesProd" src="{{ producto.imagen }}">
+                <div class="card" id="cartitas">
+                    <div class="card-body">
+                        <div *ngFor="let stock of producto.stocks">
+                            <ng-container *ngIf="stock.stock === 0">
+                                <p class="text-center bg-danger text-light border border-2 border-dark pocUnidades">Sin
+                                    unidades!! </p>
+                            </ng-container>
+                            <ng-container *ngIf="stock.stock >= 1 && stock.stock <= 15">
+                                <p
+                                    class="text-center bg-warning text-dark border border-2 border-dark pocUnidades pulse">
+                                    Últimas unidades!!</p>
+                            </ng-container>
+                        </div>
+
+                        <div class="text-center">
+                            <h5 class="card-title" id="titulos">{{ producto.nombre }}</h5>
+                            <h5 class="card-text" id="titulos">{{ producto.precio.toFixed(2) }} €</h5>
+                        </div>
+                    </div>
+                    <button *ngIf="stocks[i].stock > 0; else noStock" (click)="goToProduct(producto)" id="botonProd"
+                        [disabled]="!(stocks[i].stock > cantidadProductos[i] && cantidadProductos[i] >= 1)">
+                        <strong>Ir al Producto!!</strong>
+                    </button>
+
+                    <ng-template #noStock>
+                        <button class="bg-danger" id="botonProd">
+                            <strong>No hay stock</strong>
+                        </button>
+                    </ng-template>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

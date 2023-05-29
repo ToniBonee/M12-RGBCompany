@@ -1,0 +1,229 @@
+.panel {
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100%;
+    background-color: #420089;
+  }
+  
+  .boton-compra {
+  
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #7f1bbc;
+    overflow: hidden;
+    z-index: 1;
+    height: 100%;
+  
+   
+    display: flex;
+    align-items: center;
+  }
+  
+  .boton-compra {
+    display: inline-block;
+    background-color: #8A2BE2;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  
+  
+  
+  
+    
+  }
+  
+  .boton-compra:hover {
+    background-color: #6A1CB9;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .boton-compra:active {
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+  
+  .boton-compra::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+  }
+  
+  .boton-compra:hover::before {
+    left: 0;
+  }
+  
+  .boton-compra::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: top 0.3s ease;
+  }
+  
+  .boton-compra:hover::after {
+    top: 0;
+  }
+  
+  .button {
+    display: block;
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 4px solid #7f1bbc;
+    border-radius: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #7f1bbc;
+    transition: 0.6s;
+    overflow: hidden;
+    z-index: 1;
+    width: auto;
+    height: 100%;
+  
+    /* Centrado vertical */
+    display: flex;
+    align-items: center;
+  }
+  
+  .button:focus {
+    width: 100%;
+    height: 100%;
+    border: #000000 solid 3px;
+    z-index: 2;
+  }
+  
+  .button:before {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  .button:after {
+    width: 100%;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+  }
+  
+  .button:hover {
+    z-index: 2;
+    background: #6f38a9;
+    cursor: pointer;
+    color: #ffffff;
+    border: 4px solid #000000;
+  }
+  
+  .button:hover:before {
+    z-index: 2;
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 0.5;
+    transition: 0.7s;
+  }
+  
+  .button:hover:after {
+    z-index: 2;
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: 0.7s;
+  }
+  
+  .navegacion {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 30px;
+    height: auto;
+    border: 3px solid purple;
+  }
+  
+  .contenido {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 5px;
+    border: 3px solid purple;
+  }
+  
+  .contenido2 {
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(65, 65, 65);
+    border-radius: 20px;
+  }
+  
+  @media (min-width: 576px) {
+    .button {
+      width: 80%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .panel {
+      padding: 40px;
+    }
+  
+    .button {
+      width: 70%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .button {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .panel {
+      padding: 60px;
+    }
+  
+    .button {
+      width: 40%;
+    }
+  }
+  .boton-compra.desconectar:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
